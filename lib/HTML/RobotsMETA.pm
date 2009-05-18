@@ -1,8 +1,3 @@
-# $Id: /mirror/perl/HTML-RobotsMETA/trunk/lib/HTML/RobotsMETA.pm 4223 2007-10-29T06:42:26.630870Z daisuke  $
-# 
-# Copyright (c) 2007 Daisuke Maki <daisuke@endeworks.jp>
-# All rights reserved.
-
 package HTML::RobotsMETA;
 use strict;
 use warnings;
@@ -60,7 +55,7 @@ sub _parse_start_h
     # the "name" attribute may contain either "robots", or user-specified
     # robot name, which is specific to a particular crawler
     # XXX - Handle the specific agent part later
-    return unless defined $attr->{name} && $attr->{name} =~ /^robots$/;
+    return unless defined $attr->{name} && $attr->{name} =~ /^robots$/i;
 
     my %directives;
     # Allowed values
@@ -77,7 +72,7 @@ sub _parse_start_h
     #   ALL
     #   NONE
     my $content = lc $attr->{content};
-    while ($content =~ /((?:no)?(follow|index|archive|serve)|(?:noimage(?:index|click))|all|none)/g) {
+    while ($content =~ /((?:no)?(follow|index|archive|serve)|(?:noimage(?:index|click))|all|none)/ig) {
         $directives{$1}++;
     }
 

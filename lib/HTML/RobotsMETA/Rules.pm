@@ -1,5 +1,3 @@
-# $Id: /mirror/perl/HTML-RobotsMETA/trunk/lib/HTML/RobotsMETA/Rules.pm 3528 2007-10-16T09:36:47.480863Z daisuke  $
-
 package HTML::RobotsMETA::Rules;
 use strict;
 use warnings;
